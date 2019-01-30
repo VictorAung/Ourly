@@ -139,7 +139,6 @@ export default class HomeScreen extends React.Component {
             style={styles.idInput}
             placeholder='0000'
             placeholderTextColor='gray'
-            /*onSubmitEditing={alert(this.state.id)}*/
             onChangeText={(id) => this.setState({id})}
             onSubmitEditing={
               this.writeToObject
