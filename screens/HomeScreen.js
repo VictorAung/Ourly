@@ -147,7 +147,10 @@ export default class HomeScreen extends React.Component {
             value={this.state.id}
             />
 
-
+            <TouchableOpacity
+            onPress={this.writeToObject}>
+            <Text>Enter</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity
               onPress={this.displayData}>
