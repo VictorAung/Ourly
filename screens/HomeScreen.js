@@ -30,31 +30,55 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
+
   writeToObject = async () => {
-    //user sign in:
+    /*3 possibilities: user signing and doesn't have account, user signing in, user signing out*/
     const { id } = this.state;
-    alert(id);
-    let obj = {
-      name: 'John',
-      logStatus: 'r3aaaaaaaaa',
-      hours:'500'
+
+    try { /*testing to see if user has signed in before */
+      let test = await AsyncStorage.getItem(id);
+      if (test == null){
+        throw "we made it to catch";
+      }
     }
-    AsyncStorage.setItem(id, JSON.stringify(obj));
 
-    setInterval(async function() {
+    catch(error) { /* if not, initialize account */
+      alert(error);
+      let obj = {
+        name: 'John',
+        loggedInStatus: 'False',
+        hours:'0',
+        intervalID:''
+      }
+      AsyncStorage.setItem(id, JSON.stringify(obj));
+    }
 
-      let user = await AsyncStorage.getItem(id);
-      let parsedUser = JSON.parse(user);
-      parsedUser.hours = +parsedUser.hours + 1;
+    let user = await AsyncStorage.getItem(id);
+    let parsedUser = JSON.parse(user);
+
+    if (parsedUser.loggedInStatus == 'False') { /*if user is logged out */
+      parsedUser.loggedInStatus = 'True';
+      alert('You are now signed in. Welcome back!')
+      var intervalID = setInterval(async function() {
+        parsedUser.hours = +parsedUser.hours + 1;
+        user = JSON.stringify(parsedUser);
+        AsyncStorage.setItem(id, user);
+        alert(parsedUser.hours);
+      }, 5000, id
+      )
+      parsedUser.intervalID = intervalID.toString();
+      user = JSON.stringify(parsedUser)
+      AsyncStorage.setItem(id, user);
+    }
+
+    else { /*if user is logged in */
+      parsedUser.loggedInStatus = 'False';
       user = JSON.stringify(parsedUser);
       AsyncStorage.setItem(id, user);
-      alert(parsedUser.hours);
-    /*
-
-
-      */
-    }, 3000, id
-  )
+      parsedIntervalID = parseInt(parsedUser.intervalID);
+      clearInterval(parsedIntervalID);
+      alert('You have been logged out. Have a great day!');
+    }
 }
 
 /*  intervalHelper = async (id) => {
@@ -72,9 +96,11 @@ export default class HomeScreen extends React.Component {
 */
   displayData = async () => {
     try {
-      let user = await AsyncStorage.getItem('9999');
-      let parsedUser = JSON.parse(user);
-      alert(parsedUser.hours);
+      let user = await AsyncStorage.getItem('0505');
+      if (user == null){
+        throw "error";
+      }
+
     }
 
     catch(error) {
