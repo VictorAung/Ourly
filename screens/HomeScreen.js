@@ -127,17 +127,17 @@ export default class HomeScreen extends React.Component {
 
           </View>
 
-          <View style={styles.getStartedContainer}>
+          <View style={styles.logoContainer}>
             <Image
-            style={{width: 50, height: 50}}
-            source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+            style={{width: 300, height: 150}}
+            source={require ('../assets/images/ourly.png')}
             />
 
           </View>
 
           <View style={styles.helpContainer}>
-                <Text style={styles.getStartedText}>Welcome!</Text>
-                <Text style={styles.getStartedText}>Start tracking your hours by entering your ID.</Text>
+                <Text style={styles.welcomeText}>Welcome!</Text>
+                <Text style={styles.welcomeText}>Start tracking your hours by entering your ID.</Text>
 
 
           </View>
@@ -149,7 +149,6 @@ export default class HomeScreen extends React.Component {
             style={styles.idInput}
             placeholder='0000'
             placeholderTextColor='gray'
-            /*onSubmitEditing={alert(this.state.id)}*/
             onChangeText={(id) => this.setState({id})}
             onSubmitEditing={
               this.writeToObject
@@ -190,7 +189,7 @@ const styles = StyleSheet.create({
 
   idInput: {
     height: 50,
-    width: 100,
+    width: 124,
     textAlign: 'center',
     fontSize: 40,
     borderColor: 'gray',
@@ -209,23 +208,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 
-  getStartedContainer: {
+  logoContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    height: 150,
     borderColor: 'gray',
     borderWidth: 1,
   },
 
 
-  getStartedText: {
+  welcomeText: {
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
+    lineHeight: 44,
     textAlign: 'center',
   },
 
   helpContainer: {
     marginTop: 15,
+    lineHeight: 44,
     alignItems: 'center',
     borderColor: 'gray',
     borderWidth: 1,
