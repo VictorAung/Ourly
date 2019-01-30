@@ -51,16 +51,16 @@ export default class HomeScreen extends React.Component {
         intervalID:''
       }
       AsyncStorage.setItem(id, JSON.stringify(obj));
-      var key_string = AsyncStorage.getItem("keys");
-      console.log("key string is %s", key_string);
-      var keys = [];
+
+      var keys_string = await AsyncStorage.getItem("keys");
+      var keys_parsed = [];
       if (keys_string != null){
-        keys = JSON.parse(key_string);
+        keys_parsed = JSON.parse(keys_string);
+        //alert("key string is " + keys_string);
       }
-      console.log("key are:");
-      console.log(keys);
-      keys.push(id);
-      AsyncStorage.setItem(keys, JSON.stringify(keys));
+      keys_parsed.push(id);
+      alert("keys: " + keys_parsed.join(","));
+      AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
     }
 
     let user = await AsyncStorage.getItem(id);
@@ -74,7 +74,7 @@ export default class HomeScreen extends React.Component {
         user = JSON.stringify(parsedUser);
         AsyncStorage.setItem(id, user);
         alert(parsedUser.hours);
-      }, 5000, id
+      }, 50000, id
       )
       parsedUser.intervalID = intervalID.toString();
       user = JSON.stringify(parsedUser)
