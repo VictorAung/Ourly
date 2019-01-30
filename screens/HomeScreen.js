@@ -52,10 +52,13 @@ export default class HomeScreen extends React.Component {
       }
       AsyncStorage.setItem(id, JSON.stringify(obj));
       var key_string = AsyncStorage.getItem("keys");
+      console.log("key string is %s", key_string);
       var keys = [];
       if (keys_string != null){
         keys = JSON.parse(key_string);
       }
+      console.log("key are:");
+      console.log(keys);
       keys.push(id);
       AsyncStorage.setItem(keys, JSON.stringify(keys));
     }
@@ -146,6 +149,7 @@ export default class HomeScreen extends React.Component {
             style={styles.idInput}
             placeholder='0000'
             placeholderTextColor='gray'
+            /*onSubmitEditing={alert(this.state.id)}*/
             onChangeText={(id) => this.setState({id})}
             onSubmitEditing={
               this.writeToObject
@@ -154,10 +158,7 @@ export default class HomeScreen extends React.Component {
             value={this.state.id}
             />
 
-            <TouchableOpacity
-            onPress={this.writeToObject}>
-            <Text>Enter</Text>
-            </TouchableOpacity>
+
 
             <TouchableOpacity
               onPress={this.displayData}>
