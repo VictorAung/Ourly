@@ -51,6 +51,13 @@ export default class HomeScreen extends React.Component {
         intervalID:''
       }
       AsyncStorage.setItem(id, JSON.stringify(obj));
+      var key_string = AsyncStorage.getItem("keys");
+      var keys = [];
+      if (keys_string != null){
+        keys = JSON.parse(key_string);
+      }
+      keys.push(id);
+      AsyncStorage.setItem(keys, JSON.stringify(keys));
     }
 
     let user = await AsyncStorage.getItem(id);
