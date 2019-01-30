@@ -137,7 +137,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.helpContainer}>
                 <Text style={styles.welcomeText}>Welcome!</Text>
-                <Text style={styles.welcomeText}>Start tracking your hours by entering your ID.</Text>
+                <Text style={styles.startText}>Start tracking your hours by entering your ID.</Text>
 
 
           </View>
@@ -204,21 +204,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
-    borderColor: 'gray',
-    borderWidth: 1,
+
   },
 
   logoContainer: {
     alignItems: 'center',
     height: 150,
-    borderColor: 'gray',
-    borderWidth: 1,
   },
 
 
   welcomeText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    fontSize: 36,
+    lineHeight: 44,
+    textAlign: 'center',
+  },
+
+  startText: {
+    fontSize: 18,
     lineHeight: 44,
     textAlign: 'center',
   },
@@ -227,8 +229,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     lineHeight: 44,
     alignItems: 'center',
-    borderColor: 'gray',
-    borderWidth: 1,
+
   },
 
 });
