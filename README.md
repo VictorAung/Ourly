@@ -17,11 +17,17 @@ The landing screen is simple. The user can input their ID and then press enter t
 
 <img src="demoPics/Screenshot_1548970741.png" height=25% width=25%> <img src="demoPics/Screenshot_1548970754.png" height=25% width=25%>
 
-When signing in, new users are prompted to provide their name to create their new account. Old users will get an alert that will affirm that they have logged in. 
+When signing in, new users are prompted to provide their name to create an account. Old users will get an alert that affirms they have logged in. 
 
 <img src="demoPics/Screenshot_1548970759.png" height=25% width=25%>
 
-Users can sign out by inputting their ID, and pressing enter again. An alert will pop up to tell users that they have indeed signed out 
+Users can sign out by inputting their ID and pressing enter again. Another alert will pop up signaling that they have indeed signed out.
+
+<img src="demoPics/Screenshot_1548970782.png" height=25% width=25%><img src="demoPics/Screenshot_1548970787.png" height=25% width=25%><img src="demoPics/Screenshot_1548970833.png" height=25% width=25%>
+
+Our second screen gives our clients the option to copy and clear all the user informatoin in the system.
+
+
 
 
 
