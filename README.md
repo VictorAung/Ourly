@@ -15,7 +15,7 @@ Our solution focuses on two key aspects of the problem: tracking hours easily an
 
 The landing screen is simple. The user can input their ID and then press enter to sign in.
 
-<img style = "display: inline" src="demoPics/Screenshot_1548970741.png" height=25 width=25>
+<img style = "display: inline" src="demoPics/Screenshot_1548970741.png" height=25% width=25%>
 
 <img style = "display: inline" src="demoPics/Screenshot_1548970741.png" height=25% width=25%>
 
