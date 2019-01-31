@@ -10,6 +10,7 @@ import {
   AsyncStorage,
   TextInput,
   Button,
+  Clipboard,
   } from 'react-native';
 
   import {
@@ -22,19 +23,31 @@ export default class SettingsScreen extends React.Component {
   };
 
   writeToFile = async () => {
-    alert(FileSystem.documentDirectory);
-    /*
-    const fileContents = 'This is my content.';
-
-    try {
-      await FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'myDirectory/myFile.txt', fileContents);
+    var keys_string = await AsyncStorage.getItem("keys");
+    var ret = "No users found";
+    if (keys_string != null){
+      store_users = [];
+      store_users.push('name,id,hours');
+      keys_parsed = JSON.parse(keys_string);
+      for (let i=0; i<keys_parsed.length; i++){
+          var id = keys_parsed[i];
+          var user = await AsyncStorage.getItem(id);
+          if (user != null){
+            var store_info = [];
+            var parsed_user = JSON.parse(user);
+            store_info.push(parsed_user.name, id,  parsed_user.hours);
+            store_users.push(store_info.join(","));
+          }
+      };
+      ret = store_users.join("\n");
     }
-    catch(error) {
-      alert(error);
-      fileContents = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'myDirectory/myFile.txt');
-      alert("read from file:" + fileContents);
-    }*/
+    alert (ret);
+    Clipboard.setString(ret);
   };
+
+  clearStorage = async () => {
+      AsyncStorage.clear(alert("Users have been cleared."));
+  }
 
   render() {
     return(
@@ -48,9 +61,15 @@ export default class SettingsScreen extends React.Component {
         </View>
         <Button
           onPress={this.writeToFile}
-          title="Export to .CSV"
+          title="Copy to Clipboard"
           color="#841584"
-          accessibilityLabel="Export to .CSV"
+          accessibilityLabel="Copy to Clipboard"
+          />
+          <Button
+            onPress={this.clearStorage}
+            title="Clear Data"
+            color="#841584"
+            accessibilityLabel="Clear Data"
           />
       </ScrollView>
     </View>
