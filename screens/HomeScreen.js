@@ -11,12 +11,14 @@ import {
   TextInput
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import DialogInput from 'react-native-dialog-input';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
   state = {
     id: '',
+    isDialogVisible: false,
+    inputText: '',
   };
 
   /*constructor(props) {
@@ -30,10 +32,27 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
+  newUserInput = async() => {
+    const { isDialogVisible } = this.state;
+    const { inputText } = this.state;
+    const { id } = this.state;
+    alert(JSON.stringify(this.state));
+
+    let obj = {
+      name: 'test123',
+      loggedInStatus: 'False',
+      hours:'0',
+      intervalID:''
+    }
+    AsyncStorage.setItem(id, JSON.stringify(obj));
+    this.setState({isDialogVisible: false});
+  }
+
 
   writeToObject = async () => {
     /*3 possibilities: user signing and doesn't have account, user signing in, user signing out*/
     const { id } = this.state;
+    const { isDialogVisible } = this.state;
 
     try { /*testing to see if user has signed in before */
       let test = await AsyncStorage.getItem(id);
@@ -44,14 +63,7 @@ export default class HomeScreen extends React.Component {
 
     catch(error) { /* if not, initialize account */
       alert(error);
-      let obj = {
-        name: 'John',
-        loggedInStatus: 'False',
-        hours:'0',
-        intervalID:''
-      }
-      AsyncStorage.setItem(id, JSON.stringify(obj));
-
+      this.setState({isDialogVisible: true});
       var keys_string = await AsyncStorage.getItem("keys");
       var keys_parsed = [];
       if (keys_string != null){
@@ -61,6 +73,7 @@ export default class HomeScreen extends React.Component {
       keys_parsed.push(id);
       alert("keys: " + keys_parsed.join(","));
       AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
+      return;
     }
 
     let user = await AsyncStorage.getItem(id);
@@ -74,7 +87,7 @@ export default class HomeScreen extends React.Component {
         user = JSON.stringify(parsedUser);
         AsyncStorage.setItem(id, user);
         alert(parsedUser.hours);
-      }, 50000, id
+      }, 1000, id
       )
       parsedUser.intervalID = intervalID.toString();
       user = JSON.stringify(parsedUser)
@@ -105,17 +118,21 @@ export default class HomeScreen extends React.Component {
     }
 */
   displayData = async () => {
+    const { id } = this.state;
     try {
-      let user = await AsyncStorage.getItem('0505');
+      let user = await AsyncStorage.getItem(id);
       if (user == null){
-        throw "error";
+        throw "Sorry, user not found.";
+
       }
 
     }
-
     catch(error) {
       alert(error);
+      return;
     }
+    let user = await AsyncStorage.getItem(id);
+    alert(user);
   }
 
   render() {
@@ -166,6 +183,16 @@ export default class HomeScreen extends React.Component {
               onPress={this.displayData}>
               <Text>Display Data</Text>
             </TouchableOpacity>
+
+            <DialogInput
+              isDialogVisible= {this.state.isDialogVisible}
+              title={"We see that you're new around here!"}
+              message={"Please go ahead and type in your name so we know who you are. Afterwards, enter your ID again to start tracking hours. "}
+              hintInput ={"e.g. John Doe"}
+              submitInput={ (inputText) => {this.newUserInput(inputText)} }>
+              closeDialog={ (inputText) => {this.newUserInput(inputText)} }>
+            </DialogInput>
+
 
             </View>
         </ScrollView>
