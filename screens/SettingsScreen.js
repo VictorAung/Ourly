@@ -53,12 +53,16 @@ export default class SettingsScreen extends React.Component {
       };
       ret = store_users.join("\n");
     }
+    else {
+      alert(ret);
+      return;
+    };
     alert ("All user data has been copied to your clipboard!");
     Clipboard.setString(ret);
   };
 
   clearStorage = async () => {
-      AsyncStorage.clear(alert("Users have been cleared."));
+      AsyncStorage.clear();
       const { isDialogVisible } = this.state;
       this.setState({isDialogVisible: false});
   }
