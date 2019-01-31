@@ -13,6 +13,21 @@ Our solution focuses on two key aspects of the problem: tracking hours easily an
 
 <img src="demoPics/Screenshot_1548970692.png" height=25px width=25px>
 
+The landing screen is simple. The user can input their ID and then press enter to sign in.
+
+<img id = "newAccount" src="demoPics/Screenshot_1548970741.png" height=25px width=25px>
+
+<img id = "signIn" src="demoPics/Screenshot_1548970741.png" height=25px width=25px>
+
+<style>
+#newAccount, #signIn{
+    display: inline;
+}
+</style>
+
+
+
+
 ### Next Steps
 Our next steps include: setting up the back end database instead of storing it locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.  
 
