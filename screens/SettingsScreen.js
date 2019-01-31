@@ -41,7 +41,7 @@ export default class SettingsScreen extends React.Component {
       };
       ret = store_users.join("\n");
     }
-    alert (ret);
+    alert ("All user data has been copied to your clipboard!");
     Clipboard.setString(ret);
   };
 
@@ -59,18 +59,24 @@ export default class SettingsScreen extends React.Component {
           source={require ('../assets/images/ourly.png')}
           />
         </View>
-        <Button
-          onPress={this.writeToFile}
-          title="Copy to Clipboard"
-          color="#841584"
-          accessibilityLabel="Copy to Clipboard"
-          />
+        <View style={styles.contentContainer}>
+          <Button
+            onPress={this.writeToFile}
+            title="Copy all Data to Clipboard"
+            color="#270a77"
+            accessibilityLabel="Copy all Data to Clipboard"
+            />
+            <Text style={styles.startText}>Press the above to copy ALL user data to your clipboard.</Text>
+            </View>
+        <View style={styles.contentContainer}>
           <Button
             onPress={this.clearStorage}
-            title="Clear Data"
-            color="#841584"
-            accessibilityLabel="Clear Data"
-          />
+            title="Clear ALL Data"
+            color="#270a77"
+            accessibilityLabel="Clear ALL Data"
+            />
+            <Text style={styles.startText}>Press above to delete ALL user data. WARNING! This may not be reverted.</Text>
+          </View>
       </ScrollView>
     </View>
     )
@@ -86,6 +92,14 @@ const styles = StyleSheet.create({
 
   contentContainer: {
     paddingTop: 30,
+    marginTop: 30,
+    marginBottom: 15,
+  },
+
+  startText: {
+    fontSize: 18,
+    lineHeight: 44,
+    textAlign: 'center',
   },
 
   logoContainer: {

@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
   AsyncStorage,
-  TextInput
+  TextInput,
+  Button
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import Dialog from 'react-native-dialog';
@@ -122,6 +123,8 @@ export default class HomeScreen extends React.Component {
       return;
     }
     let user = await AsyncStorage.getItem(id);
+    var parsed_user = JSON.parse(user);
+    alert(user);
   }
 
   render() {
@@ -143,7 +146,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.helpContainer}>
                 <Text style={styles.welcomeText}>Welcome!</Text>
-                <Text style={styles.startText}>Start tracking your hours by entering your ID.</Text>
+                <Text style={styles.startText}>Sign in or out by entering your ID.</Text>
 
 
           </View>
@@ -162,15 +165,24 @@ export default class HomeScreen extends React.Component {
             value={this.state.id}
             />
 
-            <TouchableOpacity
-              onPress={this.writeToObject}>
-              <Text>Enter</Text>
-            </TouchableOpacity>
+            <View style={styles.contentContainer}>
+              <Button
+                onPress={this.writeToObject}
+                title="Enter"
+                color="#270a77"
+                accessibilityLabel="Enter"
+                />
+            </View>
+            <View style={styles.contentContainer}>
+              <Button
+                onPress={this.displayData}
+                title="Display Data"
+                color="#270a77"
+                accessibilityLabel="Display Data"
+                />
+            </View>
 
-            <TouchableOpacity
-              onPress={this.displayData}>
-              <Text>Display Data</Text>
-            </TouchableOpacity>
+
 
             <Dialog.Container visible= {this.state.isDialogVisible}>
               <Dialog.Title>We see that you're new around here!</Dialog.Title>
@@ -218,6 +230,11 @@ const styles = StyleSheet.create({
 
   contentContainer: {
     paddingTop: 30,
+  },
+
+  buttonContainer: {
+    marginTop: 30,
+    marginBottom: 30,
   },
 
   welcomeContainer: {
