@@ -19,7 +19,9 @@
     "react-native-dialog": "^5.5.0",
     "react-native-filesystem": "^0.1.0",
     "react-native-fs": "^2.13.3",
-    "react-navigation": "^3.0.9"
+    "react-native-logger": "^1.0.3",
+    "react-navigation": "^3.0.9",
+    "rn-fetch-blob": "^0.10.15"
   },
   "devDependencies": {
     "@expo/vector-icons": "^9.0.0",

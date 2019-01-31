@@ -14,6 +14,7 @@ import { WebBrowser } from 'expo';
 import Dialog from 'react-native-dialog';
 import { MonoText } from '../components/StyledText';
 
+
 export default class HomeScreen extends React.Component {
   state = {
     id: '',
@@ -32,6 +33,7 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
+
   newUserInput = async() => {
     const { isDialogVisible } = this.state;
     const { inputText } = this.state;
@@ -43,9 +45,21 @@ export default class HomeScreen extends React.Component {
       name: inputText,
       loggedInStatus: 'True',
       hours:'0',
-      intervalID:''
+      lastLogin: (new Date()).toString()
+      /*intervalID:''*/
+
     }
     AsyncStorage.setItem(id, JSON.stringify(obj));
+    var keys_string = await AsyncStorage.getItem("keys");
+    var keys_parsed = [];
+    if (keys_string != null){
+      keys_parsed = JSON.parse(keys_string);
+      //alert("key string is " + keys_string);
+    }
+    keys_parsed.push(id);
+    alert(obj.lastLogin);
+    alert("keys: " + keys_parsed.join(","));
+    AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
     this.setState({isDialogVisible: false});
   }
 
@@ -65,15 +79,6 @@ export default class HomeScreen extends React.Component {
     catch(error) { /* if not, initialize account */
       alert(error);
       this.setState({isDialogVisible: true});
-      var keys_string = await AsyncStorage.getItem("keys");
-      var keys_parsed = [];
-      if (keys_string != null){
-        keys_parsed = JSON.parse(keys_string);
-        //alert("key string is " + keys_string);
-      }
-      keys_parsed.push(id);
-      alert("keys: " + keys_parsed.join(","));
-      AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
       return;
     }
 
@@ -83,24 +88,40 @@ export default class HomeScreen extends React.Component {
     if (parsedUser.loggedInStatus == 'False') { /*if user is logged out */
       parsedUser.loggedInStatus = 'True';
       alert('You are now signed in. Welcome back!')
-      var intervalID = setInterval(async function() {
-        parsedUser.hours = +parsedUser.hours + 1;
-        user = JSON.stringify(parsedUser);
-        AsyncStorage.setItem(id, user);
-        alert(parsedUser.hours);
-      }, 1000, id
-      )
-      parsedUser.intervalID = intervalID.toString();
+
+      parsedUser.lastLogin = new Date();
+      // var intervalID = setInterval(async function() {
+      //   parsedUser.hours = +parsedUser.hours + 1;
+      //   user = JSON.stringify(parsedUser);
+      //   AsyncStorage.setItem(id, user);
+      //   alert(parsedUser.hours);
+      // }, 1000, id
+      // )
+      // par  sedUser.intervalID = intervalID.toString();
+
+
       user = JSON.stringify(parsedUser)
       AsyncStorage.setItem(id, user);
     }
 
     else { /*if user is logged in */
       parsedUser.loggedInStatus = 'False';
+      var now = new Date();
+      var parsedDate = new Date(parsedUser.lastLogin)
+      alert(parsedDate.getTime());
+      var ms = now.getTime() - parsedDate.getTime();
+      parsedUser.hours = +parsedUser.hours + (ms/3600000);
+
       user = JSON.stringify(parsedUser);
+
+
+
       AsyncStorage.setItem(id, user);
-      parsedIntervalID = parseInt(parsedUser.intervalID);
-      clearInterval(parsedIntervalID);
+
+      // parsedIntervalID = parseInt(parsedUser.intervalID);
+      // clearInterval(parsedIntervalID);
+
+
       alert('You have been logged out. Have a great day!');
     }
 }

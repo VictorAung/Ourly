@@ -12,7 +12,7 @@ import {
   Button,
   } from 'react-native';
 
-import {
+  import {
     FileSystem
   } from 'expo';
 
@@ -22,7 +22,10 @@ export default class SettingsScreen extends React.Component {
   };
 
   writeToFile = async () => {
-    const fileContents = 'This is a my content.';
+    alert(FileSystem.documentDirectory);
+    /*
+    const fileContents = 'This is my content.';
+
     try {
       await FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'myDirectory/myFile.txt', fileContents);
     }
@@ -30,7 +33,7 @@ export default class SettingsScreen extends React.Component {
       alert(error);
       fileContents = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'myDirectory/myFile.txt');
       alert("read from file:" + fileContents);
-    }
+    }*/
   };
 
   render() {
