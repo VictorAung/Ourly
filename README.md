@@ -11,19 +11,14 @@ Our solution focuses on two key aspects of the problem: tracking hours easily an
 
 ### How It Works
 
-<img src="demoPics/Screenshot_1548970692.png" height=25px width=25px>
+<img src="demoPics/Screenshot_1548970692.png" height=25% width=25%>
 
 The landing screen is simple. The user can input their ID and then press enter to sign in.
 
-<img id = "newAccount" src="demoPics/Screenshot_1548970741.png" height=25px width=25px>
+<img style = "display: inline" src="demoPics/Screenshot_1548970741.png" height=25 width=25>
 
-<img id = "signIn" src="demoPics/Screenshot_1548970741.png" height=25px width=25px>
+<img style = "display: inline" src="demoPics/Screenshot_1548970741.png" height=25% width=25%>
 
-<style>
-#newAccount, #signIn{
-    display: inline;
-}
-</style>
 
 
 
