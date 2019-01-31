@@ -11,7 +11,7 @@ import {
   TextInput
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import DialogInput from 'react-native-dialog-input';
+import Dialog from 'react-native-dialog';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -36,11 +36,12 @@ export default class HomeScreen extends React.Component {
     const { isDialogVisible } = this.state;
     const { inputText } = this.state;
     const { id } = this.state;
-    alert(JSON.stringify(this.state));
+    alert(inputText);
+    alert("Thanks! You are now signed in.")
 
     let obj = {
-      name: 'test123',
-      loggedInStatus: 'False',
+      name: inputText,
+      loggedInStatus: 'True',
       hours:'0',
       intervalID:''
     }
@@ -169,7 +170,6 @@ export default class HomeScreen extends React.Component {
             onChangeText={(id) => this.setState({id})}
             onSubmitEditing={
               this.writeToObject
-
             }
             value={this.state.id}
             />
@@ -184,14 +184,19 @@ export default class HomeScreen extends React.Component {
               <Text>Display Data</Text>
             </TouchableOpacity>
 
-            <DialogInput
-              isDialogVisible= {this.state.isDialogVisible}
-              title={"We see that you're new around here!"}
-              message={"Please go ahead and type in your name so we know who you are. Afterwards, enter your ID again to start tracking hours. "}
-              hintInput ={"e.g. John Doe"}
-              submitInput={ (inputText) => {this.newUserInput(inputText)} }>
-              closeDialog={ (inputText) => {this.newUserInput(inputText)} }>
-            </DialogInput>
+            <Dialog.Container visible= {this.state.isDialogVisible}>
+              <Dialog.Title>We see that you're new around here!</Dialog.Title>
+              <Dialog.Description>
+                Please go ahead and type in your name so we know who you are. Once we have that, we'll start tracking your hours right away.
+              </Dialog.Description>
+              <Dialog.Input
+                label="Name:"
+                onChangeText={(inputText) => this.setState({inputText})}
+              ></Dialog.Input>
+              <Dialog.Button
+                label="Continue"
+                onPress= {this.newUserInput} />
+            </Dialog.Container>
 
 
             </View>
