@@ -18,7 +18,7 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
+          ? `ios-home${focused ? '' : '-outline'}`
           : 'md-home'
       }
     />
@@ -48,7 +48,7 @@ SettingsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-code'}
+      name={Platform.OS === 'ios' ? 'ios-code' : 'md-code'}
     />
   ),
 };
