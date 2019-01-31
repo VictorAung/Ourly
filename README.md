@@ -9,9 +9,12 @@ Due to new regulations in the nonprofit industry CIS of Chicago’s employees mu
 ## Solution
 Our solution focuses on two key aspects of the problem: tracking hours easily and accurately. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision tracking of their hours. 
 
+### How It Works
+
+![Alt text](demoPics/Screenshot_1548970692.png "Title")
 
 ### Next Steps
-Our next steps would include: setting up the back end database for users and their hours, having alternative sign in methods (QR code), and putting our app on the iOS App Store and the Google Play Store.  
+Our next steps include: setting up the back end database instead of storing it locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.  
 
 ## Devlopers
 ### Victor Aung
@@ -23,11 +26,3 @@ paulfarcasanu2021@u.northwestern.edu
 ### Hamilton Vuu
 hamilton@u.northwestern.edu
 
-A text file or pdf document that indicates:
-Your and your teammate’s names & emails
-The problem your solution addresses
-What your solution does or how it works
-Screenshots encouraged
-How to demo or view your project
-If relevant, any packages or libraries we need to download to run your project
-Next steps on your project (How would we deploy this solution?)
