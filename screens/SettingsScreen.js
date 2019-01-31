@@ -13,18 +13,30 @@ import {
   Clipboard,
   } from 'react-native';
 
-  import {
-    FileSystem
-  } from 'expo';
+  import Dialog from 'react-native-dialog';
 
 export default class SettingsScreen extends React.Component {
+  state = {
+    isDialogVisible: false,
+  };
+
   static navigationOptions = {
     header: null,
   };
 
+  viewDialog = () => {
+    const { isDialogVisible } = this.state;
+    this.setState({isDialogVisible: true});
+  };
+
+  handleCancel = () => {
+      const { isDialogVisible } = this.state;
+      this.setState({isDialogVisible: false});
+  };
+
   writeToFile = async () => {
     var keys_string = await AsyncStorage.getItem("keys");
-    var ret = "No users found";
+    var ret = "No users found.";
     if (keys_string != null){
       store_users = [];
       store_users.push('name,id,hours');
@@ -47,6 +59,8 @@ export default class SettingsScreen extends React.Component {
 
   clearStorage = async () => {
       AsyncStorage.clear(alert("Users have been cleared."));
+      const { isDialogVisible } = this.state;
+      this.setState({isDialogVisible: false});
   }
 
   render() {
@@ -66,17 +80,31 @@ export default class SettingsScreen extends React.Component {
             color="#270a77"
             accessibilityLabel="Copy all Data to Clipboard"
             />
-            <Text style={styles.startText}>Press the above to copy ALL user data to your clipboard.</Text>
+            <Text style={styles.startText}>Press above to copy ALL user data to your clipboard.</Text>
             </View>
         <View style={styles.contentContainer}>
           <Button
-            onPress={this.clearStorage}
+            onPress={this.viewDialog}
             title="Clear ALL Data"
             color="#270a77"
             accessibilityLabel="Clear ALL Data"
             />
-            <Text style={styles.startText}>Press above to delete ALL user data. WARNING! This may not be reverted.</Text>
+            <Text style={styles.startText}>Press above to delete ALL user data.</Text>
           </View>
+
+          <Dialog.Container visible= {this.state.isDialogVisible}>
+            <Dialog.Title>WARNING!</Dialog.Title>
+            <Dialog.Description>
+              This will delete ALL data and cannot be reverted. Are you sure you want to continue?
+            </Dialog.Description>
+            <Dialog.Button label="Cancel"
+            onPress={this.handleCancel}
+            />
+            <Dialog.Button
+              label="Continue"
+              onPress= {this.clearStorage} />
+          </Dialog.Container>
+
       </ScrollView>
     </View>
     )
