@@ -11,7 +11,7 @@ Our solution focuses on two key aspects of the problem: tracking hours easily an
 
 ### How It Works
 
-![Alt text](demoPics/Screenshot_1548970692.png "Title"){:height="25%" width="25%"}
+<img src="demoPics/Screenshot_1548970692.png" height="25%" width="25%">
 
 ### Next Steps
 Our next steps include: setting up the back end database instead of storing it locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.  
