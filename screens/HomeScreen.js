@@ -38,12 +38,10 @@ export default class HomeScreen extends React.Component {
     const { isDialogVisible } = this.state;
     const { inputText } = this.state;
     const { id } = this.state;
-    alert(inputText);
-    alert("Thanks! You are now signed in.")
 
     let obj = {
       name: inputText,
-      loggedInStatus: 'True',
+      loggedInStatus: 'False',
       hours:'0',
       lastLogin: (new Date()).toString()
       /*intervalID:''*/
@@ -54,11 +52,10 @@ export default class HomeScreen extends React.Component {
     var keys_parsed = [];
     if (keys_string != null){
       keys_parsed = JSON.parse(keys_string);
-      //alert("key string is " + keys_string);
+
     }
     keys_parsed.push(id);
-    alert(obj.lastLogin);
-    alert("keys: " + keys_parsed.join(","));
+
     AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
     this.setState({isDialogVisible: false});
   }
@@ -77,7 +74,6 @@ export default class HomeScreen extends React.Component {
     }
 
     catch(error) { /* if not, initialize account */
-      alert(error);
       this.setState({isDialogVisible: true});
       return;
     }
@@ -90,14 +86,7 @@ export default class HomeScreen extends React.Component {
       alert('You are now signed in. Welcome back!')
 
       parsedUser.lastLogin = new Date();
-      // var intervalID = setInterval(async function() {
-      //   parsedUser.hours = +parsedUser.hours + 1;
-      //   user = JSON.stringify(parsedUser);
-      //   AsyncStorage.setItem(id, user);
-      //   alert(parsedUser.hours);
-      // }, 1000, id
-      // )
-      // par  sedUser.intervalID = intervalID.toString();
+
 
 
       user = JSON.stringify(parsedUser)
@@ -108,37 +97,16 @@ export default class HomeScreen extends React.Component {
       parsedUser.loggedInStatus = 'False';
       var now = new Date();
       var parsedDate = new Date(parsedUser.lastLogin)
-      alert(parsedDate.getTime());
       var ms = now.getTime() - parsedDate.getTime();
       parsedUser.hours = +parsedUser.hours + (ms/3600000);
 
       user = JSON.stringify(parsedUser);
-
-
-
       AsyncStorage.setItem(id, user);
-
-      // parsedIntervalID = parseInt(parsedUser.intervalID);
-      // clearInterval(parsedIntervalID);
-
-
       alert('You have been logged out. Have a great day!');
     }
 }
 
-/*  intervalHelper = async (id) => {
-      try {
-        let user = await AsyncStorage.getItem('9999');
-        let parsedUser = JSON.parse(user);
-        parsedUser.hours = parsedUser.hours + 1;
-        user = JSON.stringify(parsedUser);
-        AsyncStorage.setItem(id, user);
-      }
-      catch(error) {
-        alert(error);
-      }
-    }
-*/
+
   displayData = async () => {
     const { id } = this.state;
     try {
@@ -154,7 +122,6 @@ export default class HomeScreen extends React.Component {
       return;
     }
     let user = await AsyncStorage.getItem(id);
-    alert(user);
   }
 
   render() {
@@ -208,7 +175,7 @@ export default class HomeScreen extends React.Component {
             <Dialog.Container visible= {this.state.isDialogVisible}>
               <Dialog.Title>We see that you're new around here!</Dialog.Title>
               <Dialog.Description>
-                Please go ahead and type in your name so we know who you are. Once we have that, we'll start tracking your hours right away.
+                Please go ahead and type in your name so we know who you are. Afterwards, enter your ID again to sign in.
               </Dialog.Description>
               <Dialog.Input
                 label="Name:"
