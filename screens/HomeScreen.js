@@ -38,8 +38,8 @@ export default class HomeScreen extends React.Component {
     const { isDialogVisible } = this.state;
     const { inputText } = this.state;
     const { id } = this.state;
-    alert(inputText);
-    alert("Thanks! You are now signed in.")
+    // alert(inputText);
+    
 
     let obj = {
       name: inputText,
@@ -57,10 +57,11 @@ export default class HomeScreen extends React.Component {
       //alert("key string is " + keys_string);
     }
     keys_parsed.push(id);
-    alert(obj.lastLogin);
-    alert("keys: " + keys_parsed.join(","));
+    // alert(obj.lastLogin);
+    // alert("keys: " + keys_parsed.join(","));
     AsyncStorage.setItem("keys", JSON.stringify(keys_parsed));
     this.setState({isDialogVisible: false});
+    //alert("Thanks! You are now signed in.");
   }
 
 
@@ -77,7 +78,7 @@ export default class HomeScreen extends React.Component {
     }
 
     catch(error) { /* if not, initialize account */
-      alert(error);
+      // alert(error);
       this.setState({isDialogVisible: true});
       return;
     }
@@ -108,7 +109,7 @@ export default class HomeScreen extends React.Component {
       parsedUser.loggedInStatus = 'False';
       var now = new Date();
       var parsedDate = new Date(parsedUser.lastLogin)
-      alert(parsedDate.getTime());
+      // alert(parsedDate.getTime());
       var ms = now.getTime() - parsedDate.getTime();
       parsedUser.hours = +parsedUser.hours + (ms/3600000);
 
