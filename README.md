@@ -7,13 +7,13 @@ Made for Android and iOS using React Native.
 Due to new regulations in the nonprofit industry CIS of Chicago’s employees must track their hours accurately.
 
 ## Solution
-Our solution focuses on two key aspects of the problem: tracking hours easily and accurately. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision tracking of their hours. 
+Our solution focuses on two key aspects of the problem: tracking hours easily and accurately. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision timing of their hours. 
 
 ### How It Works
 
 <img src="demoPics/Screenshot_1548970692.png" height=25% width=25%>
 
-The landing screen is simple. The user can input their ID and then press enter to sign in.
+The landing screen is simple. The user is able to input their ID and then press enter to sign in.
 
 <img src="demoPics/Screenshot_1548970741.png" height=25% width=25%> <img src="demoPics/Screenshot_1548970754.png" height=25% width=25%>
 
@@ -21,7 +21,7 @@ When signing in, new users are prompted to provide their name to create an accou
 
 <img src="demoPics/Screenshot_1548970759.png" height=25% width=25%>
 
-Users can sign out by inputting their ID and pressing enter again. Another alert will pop up signaling that they have indeed signed out.
+Users can sign out by inputting their ID and pressing enter again. Another alert will pop up that confirms they have logged out.
 
 <img src="demoPics/Screenshot_1548970763.png" height=25% width=25%>
 
@@ -32,10 +32,10 @@ The User and Client will have the option to view the data in the system by click
 Our second screen gives our clients the option to copy and clear all the user information in the system.
 
 ### Usage
-We currently have our solution built and exported as an apk that can used on android emulators and devices. 
+We currently have our solution built and exported as an apk that can used on android emulators and devices. The modules required are react, react-native, expo, and react-native-dialog
 
 ### Next Steps
-Our next steps include: setting up the back end database instead of storing user information locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.
+Our next steps include: setting up a back end database instead of storing user information locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.
 
 ## Devlopers
 ### Victor Aung
