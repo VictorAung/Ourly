@@ -4,10 +4,14 @@ Created for the Northwestern Dance Marathon Tech Challenge -2019.
 Made for Android and iOS using React Native.
 
 ### Problem Statement
-Due to new regulations in the nonprofit industry CIS of Chicago’s employees must track their hours accurately. Develop a solution to address this.
+Due to new regulations in the nonprofit industry CIS of Chicago’s employees must track their hours accurately.
 
-### Solution
-Our solution focusses on two key aspects of the problem: tracking hours accurately and with ease. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision track of their hours. 
+## Solution
+Our solution focuses on two key aspects of the problem: tracking hours easily and accurately. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision tracking of their hours. 
+
+
+### Next Steps
+Our next steps would include: setting up the back end database for users and their hours, having alternative sign in methods (QR code), and putting our app on the iOS App Store and the Google Play Store.  
 
 ## Devlopers
 ### Victor Aung

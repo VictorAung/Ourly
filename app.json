@@ -23,7 +23,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.NUDX.Ourly"
     },
     "android":{
       "package": "com.NUDX.Ourly"
