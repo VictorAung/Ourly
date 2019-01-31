@@ -23,9 +23,13 @@ When signing in, new users are prompted to provide their name to create an accou
 
 Users can sign out by inputting their ID and pressing enter again. Another alert will pop up signaling that they have indeed signed out.
 
+<img src="demoPics/Screenshot_1548970763.png" height=25% width=25%>
+
+The User and Client will have the option to view the data in the system by clicking on "display data". This lists the users, their login status, how many hours they've worked, and then they last logged in. 
+
 <img src="demoPics/Screenshot_1548970782.png" height=25% width=25%><img src="demoPics/Screenshot_1548970787.png" height=25% width=25%><img src="demoPics/Screenshot_1548970833.png" height=25% width=25%>
 
-Our second screen gives our clients the option to copy and clear all the user informatoin in the system.
+Our second screen gives our clients the option to copy and clear all the user information in the system.
 
 
 
