@@ -29,7 +29,7 @@ The User and Client will have the option to view the data in the system by click
 
 <img src="demoPics/Screenshot_1548970782.png" height=25% width=25%><img src="demoPics/Screenshot_1548970787.png" height=25% width=25%><img src="demoPics/Screenshot_1548970833.png" height=25% width=25%>
 
-Our second screen gives our clients the option to copy and clear all the user information in the system.
+Our second screen gives our clients the option to copy and clear all the user information in the system. The app provides all user data in a CSV compatible format for an easy way to import to spreadsheets or other apps.
 
 ### Usage
 We currently have our solution built and exported as an apk that can used on android emulators and devices. If you'd like to run it on iOS instead, install these: react, react-native, expo, and react-native-dialog. 
