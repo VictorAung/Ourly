@@ -1,7 +1,11 @@
 # Ourly
 A simple timekeeping app to log hours. 
-Created for the Northwestern Dance Marathon Tech Challenge -2019.
+
+Created for the Northwestern Dance Marathon Tech Challenge 2019.
+
 Made for Android and iOS using React Native.
+
+See the Tech Challenge page [here!](https://github.com/garrettmatsuda/NUDM_Tech_Challenge)
 
 ### Problem Statement
 Due to new regulations in the nonprofit industry CIS of Chicago’s employees must track their hours accurately.
