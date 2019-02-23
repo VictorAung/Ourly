@@ -36,7 +36,7 @@ The User and Client will have the option to view the data in the system by click
 Our second screen gives our clients the option to copy and clear all the user information in the system. The app provides all user data in a CSV compatible format for an easy way to import to spreadsheets or other apps.
 
 ### Usage
-We currently have our solution built and exported as an apk that can used on android emulators and devices. If you'd like to run it on iOS instead, install these: react, react-native, expo, and react-native-dialog. 
+We currently have our solution built and exported as an APK that can used on Android emulators and devices. You can find it in the finished APK folder. If you'd like to run it on iOS instead, install these: react, react-native, expo, and react-native-dialog. 
 
 ### Next Steps
 Our next steps include: setting up a back end database instead of storing user information locally, having alternative sign in methods (QR codes), and putting our app on the iOS App Store and the Google Play Store.
