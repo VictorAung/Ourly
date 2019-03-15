@@ -9,7 +9,7 @@ Made for Android and iOS using React Native.
 See the Tech Challenge page [here!](https://github.com/garrettmatsuda/NUDM_Tech_Challenge)
 
 ### Problem Statement
-Due to new regulations in the nonprofit industry CIS of Chicago’s employees must track their hours accurately.
+Due to new regulations in the nonprofit industry, CIS of Chicago’s employees must track their hours more accurately than before.
 
 ## Solution
 Our solution focuses on two key aspects of the problem: tracking hours easily and accurately. Users are able to sign in with their ID and our app will automaticlly track their hours until they sign out, providing precision timing of their hours. Ourly aims to be a physical timecard replacement app. It can also be used as a personal tracker - it's possible to track how much time you spend on different tasks. 
