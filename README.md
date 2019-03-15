@@ -1,7 +1,7 @@
 # Ourly
 A simple timekeeping app to log hours. 
 
-Created for the Northwestern Dance Marathon Tech Challenge 2019.
+Winner of the 2019 Northwestern Dance Marathon Tech Challenge.
 
 Made for Android and iOS using React Native.
 
