@@ -1,4 +1,5 @@
-# Ourly
+<img src="assets/images/ourly.png" height=25% width=25%>
+
 A simple timekeeping app to log hours. 
 
 Winner of the 2019 Northwestern Dance Marathon Tech Challenge.
